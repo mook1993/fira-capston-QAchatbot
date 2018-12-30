@@ -733,8 +733,6 @@ def dmn_train(iterations, batch_size):
         test_writer.add_summary(summ, j)
         
         if (j) % 10 == 0:
-            print(batch)
-            print(val_batch)
             acc, ccs, tmp_loss, log, con, cor, loc, a, n  = sess.run([corrects, cs, total_loss, logit, context_placeholder, corr, locs, corrbool, locs], feed_dict=validation_set)
             print("Iter " + str(j/batch_size) + ", Minibatch Loss= ",tmp_loss, "Accuracy= ", np.mean(acc))
         if (j) % 50 ==0:
